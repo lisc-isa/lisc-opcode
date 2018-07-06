@@ -1,0 +1,18 @@
+# Instructions that differ slightly between rv32 and rv64
+@slli.rv32 rd rs1 shamt       28=0 clips3 15..12=0x1 7..5=4 4..2=0 1..0=3
+@srli.rv32 rd rs1 shamt       28=0 clips3 15..12=0x5 7..5=4 4..2=0 1..0=3
+@srai.rv32 rd rs1 shamt       28=0 clips3 15..12=0xD 7..5=4 4..2=0 1..0=3
+
+# SYSTEM pseudo-instructions that map to csr*
+@rdcycle    rd 27..24=0x0    31..28=0x4  23..12=0xc00    7..0=0xfb
+@rdtime     rd 27..24=0x0    31..28=0x4  23..12=0xc01    7..0=0xfb
+@rdinstret  rd 27..24=0x0    31..28=0x4  23..12=0xc02    7..0=0xfb
+@rdcycleh   rd 27..24=0x0    31..28=0x4  23..12=0xc80    7..0=0xfb
+@rdtimeh    rd 27..24=0x0    31..28=0x4  23..12=0xc81    7..0=0xfb
+@rdinstreth rd 27..24=0x0    31..28=0x4  23..12=0xc82    7..0=0xfb
+
+# Old names for ecall/ebreak
+@scall     11..8=0 27..24=0 31..28=0 23..12=0  7..5=7 4..2=6 1..0=3
+@sbreak    11..8=0 27..24=0 31..28=0 23..12=1  7..5=7 4..2=6 1..0=3
+
+@eret      31..0=0x2600fb
